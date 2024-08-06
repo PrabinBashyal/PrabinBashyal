@@ -26,9 +26,9 @@ class Dollars{
     public:
         Dollars(){}
         Dollars(Rupees r){
-            float totalRupees = static_cast<float>(r.getPaisa())/100 + r.getRupees();
+            float totalRupees = (r.getPaisa())/100 + r.getRupees();
             float totalDollars = totalRupees / 98.51;
-            dollar = static_cast<int>(totalDollars);
+            dollar = (totalDollars);
             cent = (totalDollars-dollar) * 100;
         }
 
