@@ -1,0 +1,66 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Student {
+    char name[30];
+    int dob; // Date of Birth (e.g., YYYYMMDD)
+
+public:
+    // Default constructor
+    Student() {
+        strcpy(name, "");
+        dob = 0;
+    }
+
+    // Parameterized constructor
+    Student(const char* nam, int doo) {
+        strcpy(name, nam);
+        dob = doo;
+    }
+
+    // Function to get data from the user
+    void getdata() {
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter DOB (YYYYMMDD): ";
+        cin >> dob;
+    }
+
+    // Function to return DOB for comparison
+    int getDob() const {
+        return dob;
+    }
+
+    // Function to return the name
+    const char* getName() const {
+        return name;
+    }
+};
+
+int main() {
+    Student a[100];
+    int n;
+
+    cout << "Enter number of persons: ";
+    cin >> n;
+
+    // Input data for each student
+    for (int i = 0; i < n; i++) {
+        a[i].getdata();
+    }
+
+    int searchDOB;
+    cout << "Enter DOB to search (YYYYMMDD): ";
+    cin >> searchDOB;
+
+    // Check and print names of students with matching DOB
+    cout << "Persons with DOB " << searchDOB << " are:" << endl;
+    for (int i = 0; i < n; i++) {
+        if (a[i].getDob() == searchDOB) {
+            cout << a[i].getName() << endl;
+        }
+    }
+
+    return 0;
+}
